@@ -1,53 +1,28 @@
-<?php
-$Email = Trim(stripslashes($_POST['Email'])); // Collecting the users email
-$EmailTo = "subash2esc@gmail.com"; // Your email address to receive the message.
-$Subject = "Message from GITHUB MyWebsite"; // Subject of the email
-$Name = Trim(stripslashes($_POST['Name'])); // Collecting the users Name
-
-// If statement checking whether the users email is valid
-if (strpos($Email, '@') === false && strpos($Email, '.') === false) {
-header("Location: index.html"); // Web address of your contact page
-exit();
+<?php session_start();
+if(isset($_POST['submit'])) {
+$youremail = 'subash2esc@gmail.com';
+$fromsubject = 'Contact Form from MyWebsite';
+$name = $_POST['Name'];
+$mail = $_POST['Email'];
+ 
+$message = $_POST['Message']; 
+$to = $youremail; 
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type:text/html; charset=UTF-8' . "\r\n";
+$headers .= "From: ".$_POST['Name']."<".$_POST['Email'].">\r\n"; 
+$headers .= "Reply-To: ".$_POST["Email"]."\r\n";
+$mailsubject = 'Messsage recived for'.$fromsubject.' Contact Page';
+$body = $fromsubject.'
+	
+	The person that contacted you is  '.$name.'
+	 E-mail: '.$mail.'
+	
+	 Message: 
+	 '.$message.'	
+	|---------END MESSAGE----------|'; 
+echo "Thank you fo your feedback. I will contact you shortly if needed.<br/>Go to <a href='/index.php'>Home Page</a>"; 
+								mail($to, $body, $headers);
+ } else { 
+echo "You must write a message. </br> Please go to <a href='/index.html'>Home Page</a>"; 
 }
-
-$Message = Trim(stripslashes($_POST['Message'])); // Collecting users message
-
-// Validation
-$validationOK=true;
-if (!$validationOK) {
-print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
-exit;
-}
-
-// Prepare email body text.
-// Can be concatenated but this is easier to read.
-$Body = "";
-$Body .= "Hello";
-$Body .= "/n";
-$Body .= "Thank you for contacting us. We have received your message and we aim to get back to you as soon as possible.";
-$Body .= "Your enquiry: ";
-$Body .= "\n";
-$Body .= "Name: ";
-$Body .= $Name;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $Email;
-$Body .= "\n";
-$Body .= "Message: ";
-$Body .= $Message;
-$Body .= "\n";
-
-// Function to send the email.
-// Attached to a variable so it can it can be checked in an if statement later.
-$success = mail($EmailTo, $Subject, $Body, "From: <$Email>");
-
-// If statement to check if the email was sent.
-// Redirect to the url you will enter on line 47 instead of the #.
-if ($success){
-print "<meta http-equiv=\"refresh\" content=\"0;URL=index.html\">";
-}
-else{
-print "<meta http-equiv=\"refresh\" content=\"0;URL=index.html\">";
-}
-
-?>
+?> 
