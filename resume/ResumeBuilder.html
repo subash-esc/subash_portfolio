@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css\styleindex.css">
+    
+    <!--Bootstrap Css-->
+	<link
+        href="file_bootstrap\bootstrap\css\bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="file_bootstrap\bootstrap\css1\bootstrap.min.css"
+    >
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+        src="file_bootstrap\bootstrap\js\bootstrap.bundle.min.js"      
+    ></script>
+
+    <!--Bootstrap Js-->
+    <script
+        src="file_bootstrap\bootstrap\js\jquery-3.2.1.slim.min.js"
+    ></script>
+
+    <script
+        src="file_bootstrap\bootstrap\js\popper.min.js"
+    ></script>
+
+    <script
+        src="file_bootstrap\bootstrap\js\bootstrap.min.js"
+    ></script>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+        }
+
+        /* The Close Button */
+        .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <section class="wave">
+        <!-- heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <p>Welcome to Our Resume Portal</p>
+                    <h1>Resume Builder</h1>
+                </div>  
+            </div>            
+        </div>
+        
+        <div class="row" id="centr">
+            <div class="col-md-6">
+                <a href="#"><img src="img\res1.jpg"></a><br>
+                <br>
+                <label>ATS Friendly Resume</label>
+                <div>
+                    <a href="ResumeATS.html"><button type="button" class="btn btn-primary rounded-pill">Select</button></a>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <a href="ResumeDesigner.html"><img src="img\res2.jpg"></a><br>
+                <br>
+                <label>Designer Resume</label>
+                <div>
+                    <a href="ResumeDesigner.html"><button type="button" id="myBtn" class="btn btn-primary rounded-pill">Select</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+</body>
+</html>

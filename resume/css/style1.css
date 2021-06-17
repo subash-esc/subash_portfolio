@@ -1,0 +1,157 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+section
+{
+  padding-top: 1%;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(-45deg,  #536272, #536272, #536272, #536272);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  display: flex;
+}
+@keyframes gradient {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
+section:before
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background: #ffffff;
+  clip-path: polygon(100% 0,0 100%,100% 100%);
+}
+
+
+.btn-pink-moon {background-image: linear-gradient(to right,  #536272, #536272, #536272, #536272)}
+.btn-pink-moon {
+ margin: 10px;
+ padding: 15px 45px;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: #ffffff;            
+ box-shadow: 0 0 20px #eee;
+ border-radius: 10px;
+ display: block;
+}
+
+.btn-pink-moon:hover {
+ background-position: right center; /* change the direction of the change here */
+ color:#ffffff;
+ text-decoration: none;
+}
+div.scrollmen {
+  background-color: #536272;
+}
+
+div.scrollmen a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  float: none;
+  text-decoration: none;
+}
+div.scrollmen a:hover {
+  background-color: #7c8d8b;
+}
+
+.vertical-menu
+{
+  width: 600px;
+  height: 700px;
+  overflow-y: auto;
+  background-color: #536272;
+}
+
+#page
+{
+  width: 21cm;
+  height: 29cm;
+  margin: 1% auto 1% auto;
+  padding: 0.2cm 1.3cm 1cm 1.3cm;
+  box-shadow: 0px 0px 20px 0px #000;
+  line-height: 1.4em;
+  text-align: justify;
+  color: #ffffff;  
+}
+
+.card
+{
+  width: 10cm;
+  height: 29cm;
+  background-color: white;
+  margin: 2% auto 1% auto;	
+  box-shadow: 0px 0px 20px 0px #000;
+  line-height: 1.4em;
+  text-align: left;
+  height: 1094px;
+  overflow-y: auto;
+}
+
+#resume
+{
+
+  margin-left: -7%;
+  padding-left: 10%;
+  margin-top: -1%;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  background-color: #fff;
+  color: #000;
+  margin-right: -7%;
+  padding-right: 7%;
+
+}
+.colorback
+{
+  background-color: #536272;
+  margin-top: -3%;
+  margin-left: -10%;
+  padding-left: 10%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  color: #ffffff;
+  margin-right: -7%;
+  padding-right: 7%;
+}
+
+#pad
+{
+  padding-left: 2%;
+}
+
+#desc
+{
+  padding-left: 4%;
+  padding-right: 4%;
+  text-align: center;
+}
+hr{
+  padding: 0% !important;
+  margin: 0% !important;
+}
+
+#fa-star
+{
+  padding-left: 2%;
+  font-size: medium;
+  font-weight: normal;
+}

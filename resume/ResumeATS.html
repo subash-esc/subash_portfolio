@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Builder</title>
+    
+    <!--Css-->
+    <link
+      rel="stylesheet"
+      href="css/style1.css"
+    />
+    <link
+      rel="stylesheet"
+      href="css/thin_scroll.css"
+    />
+
+    <!--Bootstrap Css-->
+    <link
+      href="file_bootstrap\bootstrap\css\bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="file_bootstrap\bootstrap\css1\bootstrap.min.css"
+    >
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="file_bootstrap\bootstrap\js\bootstrap.bundle.min.js"      
+    ></script>
+
+    <!--Bootstrap Js-->
+    <script
+      src="file_bootstrap\bootstrap\js\jquery-3.2.1.slim.min.js"
+    ></script>
+
+    <script
+      src="file_bootstrap\bootstrap\js\popper.min.js"
+    ></script>
+
+    <script
+      src="file_bootstrap\bootstrap\js\bootstrap.min.js"
+    ></script>
+
+    <!--Font Awosome-->   
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    >
+   
+    <!-- Vue Js  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+
+    <!--Pdfmake-->
+    <script src="file_bootstrap\bootstrap\js\html2pdf.bundle.js"></script>
+
+    <style>
+      h3 {
+        color:#536272;
+      }
+      h5 {
+        color: #536272;
+      }
+      h6
+		{
+			color: #536272;
+		}
+      h4
+      {
+          color: #536272;
+      }
+      hr.hori {
+        height: 3px;
+        border-radius: 5px;
+        background-color: #536272;
+      }      
+    </style>
+  </head>
+
+<body>
+    <section id="wave">
+        <div class="container-fluid" id="vue-app">
+            <div class="row">
+                <div class="col-sm-4">				
+                    <div class="card" id="vertical-menu-left">
+                        <div class="card-body">
+                            <h3 class="text-center" data-toggle="modal">Resume</h3>
+                            <div class="text-center">										
+                                <button type="button" style="color: #ffffff;" class="btn btn-pink-moon rounded-pill" id="download">DOWNLOAD AS PDF</button>	
+                            </div>
+                            <hr style="color: #536272;" >
+            
+                            <h4 class="text-center">Edit Your Template</h4>                            
+
+                            <nav>
+                                <div class="row nav nav-tabs scrollmen" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-personal-tab" data-toggle="tab" href="#nav-personal" role="tab" aria-controls="nav-personal"
+                                        aria-selected="true">Personal</a>
+                                    <a class="nav-item nav-link" id="nav-objective-tab" data-toggle="tab" href="#nav-objective" role="tab" aria-controls="nav-objective"
+                                        aria-selected="true">Objective</a>
+                                    <a class="nav-item nav-link" id="nav-Training-tab" data-toggle="tab" href="#nav-Training" role="tab" aria-controls="nav-Training"
+                                        aria-selected="false">Training/Internship</a>   
+                                    <a class="nav-item nav-link" id="nav-educational-tab" data-toggle="tab" href="#nav-educational" role="tab" aria-controls="nav-educational"
+                                        aria-selected="false">Education</a>    
+                                    <a class="nav-item nav-link" id="nav-Skill-tab" data-toggle="tab" href="#nav-Skill" role="tab" aria-controls="nav-Skill"
+                                        aria-selected="false">Skill</a>
+                                    <a class="nav-item nav-link" id="nav-Projects-tab" data-toggle="tab" href="#nav-Projects" role="tab" aria-controls="nav-Projects"
+                                        aria-selected="false">Projects</a>    
+                                    <a class="nav-item nav-link" id="nav-Achievements-tab" data-toggle="tab" href="#nav-Achievements" role="tab" aria-controls="nav-Achievements"
+                                        aria-selected="false">Achievements</a>                                                                        									                                                                                                           								
+                                </div>
+                            </nav>	
+                            <br>
+                            <hr>									
+                            <div class="tab-content mt-5" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-personal" role="tabpanel" aria-labelledby="nav-personal-tab">                                    
+                                        <h6>Name</h6>
+                                        <input type="text" id="myBtn" class="form-control" placeholder="Name" v-model="name" />                                                                                                                                                                                                                                                                                                       
+
+                                        <h6>Phone Number</h6>
+                                        <input type="number"
+                                            class="form-control"
+                                            placeholder="Phone No."
+                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                            maxlength="10"
+                                            v-model="phone"
+                                        />
+
+                                        <h6>Email ID</h6>
+                                        <input type="text" class="form-control" placeholder="Email Id" v-model="email" />
+                                        <h6>Address</h6>
+                                        <input type="text" class="form-control" placeholder="Address" v-model="address" />                                    
+                                        <h6>Date Of Birth</h6>                                    
+                                        <input type="date" class="form-control" id="dob" v-model="date" />                                    
+                                </div>
+                                
+    
+                                <div class="tab-pane fade" id="nav-objective" role="tabpanel" aria-labelledby="nav-objective-tab">
+                                    <h6>About Your Self</h6>									
+                                    <textarea class="form-control" maxlength="250" rows="3" placeholder="About Your Self" v-model="obj1" aria-label="With textarea"></textarea>									
+                                    <h6>*Only 250 Characters</h6>
+                                </div>
+    
+    
+    
+                                <div class="tab-pane fade scrollbar" id="nav-educational" role="tabpanel" aria-labelledby="nav-educational-tab">
+                                    <div class="text-center">
+                                        <span style="color: #536272;">(If you Have Master Degree)</span>										
+                                        <input type="checkbox" id="app" v-on:click="seen3 = !seen3" style="color: #ffffff;" >	
+                                        <hr>										
+                                    </div>
+                                    <div v-if="seen3" id="hide">
+                                        <h6>College</h6>                                                                                                        
+                                            <input type="text" class="form-control" style="margin: 2px;" placeholder="College Name" v-model="mcollegename" />                                    
+                                            <input type="text" class="form-control" style="margin: 2px;" placeholder="Location" v-model="mcollegelocation" />                                    
+                                            <input type="text" class="form-control" style="margin: 2px;" placeholder="Degree" v-model="mcollegedegree" />                                                                        
+                                            <input type="text" class="form-control" style="margin: 2px;" placeholder="Percentage" v-model="mcollegescore" />								
+                                        
+    
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6>Start Date</h6>																													
+    
+                                                <select id="sdate" v-model="msmonth">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select id="sdate" v-model="msyear">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>
+                                                                                            
+                                                </select>										
+    
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h6>End Date</h6>										
+    
+                                                <select id="edate" v-model="memonth">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select id="edate" v-model="meyear">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>										
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr class="hori">
+                                    </div>
+                                    
+                                    <br>
+                                    <h6>College</h6>                                                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="College Name" v-model="collegename" />                                    
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Location" v-model="collegelocation" />                                    
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Degree" v-model="collegedegree" />                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Percentage" v-model="collegescore" />								
+                                    
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Start Date</h6>																													
+    
+                                            <select id="sdate" v-model="smonth1">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="sdate" v-model="syear1">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>
+                                                                                        
+                                            </select>										
+    
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>End Date</h6>										
+    
+                                            <select id="edate" v-model="emonth1">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="edate" v-model="eyear1">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr class="hori">
+    
+                                    <br>                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                
+                                    <h6>High School</h6>
+                                                                                                            
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="High School Name" v-model="hschoolname" />                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Location" v-model="hschoolocation" />                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Degree" v-model="hschooldegree" />
+                                        
+                                        <div class="dropdown">
+                                            <select class="form-control" v-model="hschoolboard">
+                                                <option>Board</option>
+                                                <option>State Board</option>
+                                                <option>CBSE</option>
+                                                <option>ICSE</option>
+                                            </select>																			 																				
+                                        </div> 
+    
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Percentage" v-model="hschoolscore" />								
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+    
+                                            <h6>Start Date</h6>																		
+    
+                                            <select id="sdate1" v-model="smonth2">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="sdate1" v-model="syear2">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>										
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>End Date</h6>									
+    
+                                            <select id="edate1" v-model="emonth2">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="edate1" v-model="eyear2">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr class="hori">
+                                    <br>                                                                                                                                                                                                                                                                                                    
+                                    <h6>School</h6>
+                                                                                                            
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="School Name" v-model="schoolname" />                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Location" v-model="schoolocation" />                                                                        
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Degree" v-model="schooldegree" /> 
+    
+                                        <div class="dropdown">
+                                            <select class="form-control" v-model="schoolboard">
+                                                <option>Board</option>
+                                                <option>State Board</option>
+                                                <option>CBSE</option>
+                                                <option>ICSE</option>
+                                            </select>																			 																				
+                                        </div>   
+    
+                                        <input type="text" class="form-control" style="margin: 2px;" placeholder="Percentage" v-model="schoolscore" />                                    															
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Start Date</h6>																				
+    
+                                            <select id="sdate2" v-model="smonth3">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="sdate2" v-model="syear3">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>										
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>End Date</h6>																			
+    
+                                            <select id="edate2" v-model="emonth3">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select id="edate2" v-model="eyear3">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>
+                                        </div>
+                                    </div>																																																																																																			                                  																	
+                                </div>
+    
+                                <div class="tab-pane fade" id="nav-Projects" role="tabpanel" aria-labelledby="nav-Projects-tab">
+                                    
+                                        
+                                    
+                                    <h6>Project</h6>
+                                    <input type="text" class="form-control" placeholder="Project Title" v-model="pr1">	
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Start Date</h6>																			
+    
+                                            <select v-model="psdate1">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select  v-model="pedate1">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>										
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>End Date</h6>																				
+    
+                                            <select v-model="psdate2">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select v-model="pedate2">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>
+                                        </div>
+                                    </div>
+                                
+                                    <br>
+                                    <h6>Description</h6>
+                                        <textarea class="form-control" maxlength="150" rows="3" placeholder="Description" v-model="pro1" aria-label="With textarea"></textarea>
+                                        <h6>*Only 150 Characters</h6>									
+                                    
+                                        
+                                    
+                                    <div v-if="seen2" id="hide">
+                                        <br>
+                                        <hr class="hori">
+                                        <br>
+                                        <h6>Project</h6>
+                                        <input type="text" class="form-control" placeholder="Project Title" v-model="pr2">
+    
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6>Start Date</h6>																				
+    
+                                                <select v-model="psdate3">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select  v-model="pedate3">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>										
+                                                </select>										
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h6>End Date</h6>																				
+    
+                                                <select v-model="psdate4">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select v-model="pedate4">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>										
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <br>
+                                        <h6>Description</h6>
+                                            <textarea class="form-control" maxlength="150" rows="3" placeholder="Description" v-model="pro2" aria-label="With textarea"></textarea>
+                                            <h6>*Only 150 Characters</h6>	
+                                    </div>
+                                    <br>
+                                    <div class="text-center">
+                                        <hr>
+                                        <h6>(If you Have More Project)</h6>										
+                                        <button type="button" id="app" v-on:click="seen2 = !seen2" style="color: #ffffff;" class="btn btn-pink-moon rounded-pill">Add/Hide</button>											
+                                    </div>															
+                                </div>
+    
+                                <div class="tab-pane fade" id="nav-Training" role="tabpanel" aria-labelledby="nav-Training-tab">
+                                    
+                                    <h6>Internship/Training</h6>
+    
+                                    <input type="text" class="form-control" placeholder="Company Name" v-model="tr1">
+    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Start Date</h6>																				
+    
+                                            <select v-model="tsdate1">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select  v-model="tedate1">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>										
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>End Date</h6>																				
+    
+                                            <select v-model="tsdate2">
+                                                <option selected>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>	
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                            <select v-model="tedate2">
+                                                <option selected>Year</option>
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>	
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                                <option>2023</option>
+                                                <option>2024</option>
+                                                <option>2025</option>										
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <br>
+                                    <h6>Description</h6>
+                                    <textarea class="form-control" maxlength="150" rows="3" placeholder="Add Description" v-model="tra1" aria-label="With textarea"></textarea>
+                                    
+                                    <h6>*Only 150 Characters</h6>													
+                                    
+                                    
+                                    <div v-if="seen" id="hide">
+                                        <br>
+                                        <hr class="hori">
+                                        <br>
+                                        <h6>Internship/Training</h6>
+                                        
+                                        <input type="text" class="form-control" placeholder="Company Name" v-model="tr2">
+    
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6>Start Date</h6>																				
+    
+                                                <select v-model="tsdate3">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select  v-model="tedate3">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>										
+                                                </select>										
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h6>End Date</h6>																				
+    
+                                                <select v-model="tsdate4">
+                                                    <option selected>Month</option>
+                                                    <option>Jan</option>
+                                                    <option>Feb</option>
+                                                    <option>Mar</option>
+                                                    <option>Apr</option>
+                                                    <option>May</option>	
+                                                    <option>Jun</option>
+                                                    <option>Jul</option>
+                                                    <option>Aug</option>
+                                                    <option>Sep</option>
+                                                    <option>Oct</option>
+                                                    <option>Nov</option>
+                                                    <option>Dec</option>
+                                                </select>
+                                                <select v-model="tedate4">
+                                                    <option selected>Year</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>	
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                    <option>2024</option>
+                                                    <option>2025</option>										
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <br>
+    
+                                        <h6>Description</h6>
+                                        <textarea class="form-control" maxlength="150" rows="3" placeholder="Add Description" v-model="tra2" aria-label="With textarea"></textarea> 
+                                        
+                                        <h6>*Only 150 Characters</h6>
+                                    </div>
+                                    <br>
+                                    <div class="text-center">
+                                        <hr>
+                                        <h6>(If you Have More Internship/Training)</h6>										
+                                        <button type="button" id="app" v-on:click="seen = !seen" style="color: #ffffff;" class="btn btn-pink-moon rounded-pill">Add/Hide</button>											
+                                    </div>
+                                </div>								                                                                               
+                                
+                                <div class="tab-pane fade" id="nav-Skill" role="tabpanel" aria-labelledby="nav-Skill-tab">
+                                    <h6>Enter Your Skill Here:</h6>
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski1" aria-label="With textarea"></textarea>                                                                        									
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski2" aria-label="With textarea"></textarea>                                                                        									
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski3" aria-label="With textarea"></textarea>                                                                        									
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski4" aria-label="With textarea"></textarea>                                                                        									
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski5" aria-label="With textarea"></textarea>								                                   
+                                        <textarea class="form-control" style="margin: 2px;" rows="1" placeholder="Enter Your Skill" v-model="ski6" aria-label="With textarea"></textarea>								                                   
+                                </div>
+    
+                                <div class="tab-pane fade" id="nav-Achievements" role="tabpanel" aria-labelledby="nav-Achievements-tab"> 
+                                                               
+                                    <h6>Achievements</h6>
+                                        <textarea class="form-control" style="margin: 2px;" rows="2" placeholder="Description" v-model="ach1" aria-label="With textarea"></textarea>                                                                        
+                                        <textarea class="form-control" style="margin: 2px;" rows="2" placeholder="Description" v-model="ach2" aria-label="With textarea"></textarea>                                                                        
+                                        <textarea class="form-control" style="margin: 2px;" rows="2" placeholder="Description" v-model="ach3" aria-label="With textarea"></textarea>                                    									
+            
+                                </div>
+                            </div>																		
+                        </div>
+                    </div>
+                </div>					
+                <div class="col-sm-8">
+                    <div id="page" class="droid">
+                        <div id="resume">	
+                            <div class="colorback">                                
+                                <div class="row">														
+                                    <div class="col-sm-12">
+                                        <h1><b><span> {{ name }} </span></b></h1>								
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6" style="text-align: justify;">
+                                        <b><span>Phone : +91 {{ phone }}</span></b>							
+                                        <br>
+                                        <b><span>Email : {{ email.toLowerCase().trim() }}</span></b>
+                                    </div>
+                                    <div class="col-sm-6" style="text-align: justify;">
+                                        <span>City : {{ address }}</span>
+                                        <br>										
+                                        <span>DOB : {{ date }}</span>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>																					
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4> Objective </h4>
+                                    <div id="pad">
+                                        <span style="text-align: justify;"> {{ obj1 }} </span>                                    
+                                    </div>								
+                                    <hr class="hori">
+
+                                    <h4> Internship/Training </h4>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-8">
+                                            <span> <b> {{ tr1 }} </b> </span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><b><i> {{ tsdate1 }} {{ tedate1 }} - {{ tsdate2 }} {{ tedate2 }} </i></b> </span>                                                                                        
+                                        </div>
+                                    </div>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-12">
+                                            <span>{{ tra1 }} </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div v-if="seen" id="hide">
+                                        <hr>
+                                        <div class="row" id="pad">
+                                            <div class="col-sm-8">
+                                                <span> <b> {{ tr2 }} </b> </span>                                                           
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span> <b><i> {{ tsdate3 }} {{ tedate3 }} - {{ tsdate4 }} {{ tedate4 }} </i></b> </span>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="pad">
+                                            <div class="col-sm-12">
+                                                <span> {{ tra2 }} </span>
+                                            </div>
+                                        </div>
+                                    </div>   
+
+                                    <hr class="hori">
+
+                                    <h4>Education Qualification </h4>
+                                    <div v-if="seen3" id="hide">
+                                        <div class="row" id="pad">
+                                            <div class="col-sm-8">
+                                                <span><b>{{ mcollegename }}</b></span>
+                                                <br>
+                                                <span>{{ mcollegedegree }} - {{ mcollegescore }}</span>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <span><b><i> {{ msmonth }} {{ msyear }} - {{ memonth }}  {{ meyear }} </i></b> </span>
+                                                <br>
+                                                <span>{{ mcollegelocation }}</span>                                                
+                                            </div>                                            
+                                        </div>  
+                                        <hr>                                                                                                                                                                                                                                                                                                                                                            
+                                    </div>
+
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-8">
+                                            <span><b>{{ collegename }}</b></span>
+                                            <br>
+                                            <span>{{ collegedegree }} - {{ collegescore }}</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><b><i> {{ smonth1 }} {{ syear1 }} - {{ emonth1 }}  {{ eyear1 }} </i></b> </span>
+                                            <br>
+                                            <span>{{ collegelocation }}</span>        
+                                        </div>
+                                    </div>                                                                             
+                                    <hr>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-8">
+                                            <span> <b>{{ hschoolname }} </b></span>
+                                            <br>
+                                            <span>{{ hschooldegree }} ({{ hschoolboard }})- {{ hschoolscore }}</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><b><i> {{ smonth2 }} {{ syear2 }} - {{ emonth2 }}  {{ eyear2 }} </i></b> </span>
+                                            <br>
+                                            <span>{{ hschoolocation }}</span>
+                                        </div>
+                                    </div>                                    
+                                    <hr>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-8">
+                                            <span> <b> {{ schoolname }} </b></span>
+                                            <br>
+                                            <span>{{ schooldegree }} ({{ schoolboard }}) - {{ schoolscore }}</span>                                            
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><b><i> {{ smonth3 }} {{ syear3 }} - {{ emonth3 }}  {{ eyear3 }} </i></b> </span>
+                                            <br>										
+                                            <span>{{ schoolocation }}</span>
+                                        </div>
+                                    </div> 
+                                    
+                                    <hr class="hori">
+
+                                    <h4>Skills </h4>
+                                    <div class="row" id="fa-star">
+                                        <div class="col-sm-4">
+                                            <span><i class="fas fa-star"> {{ ski1 }} </i> </span>
+                                            <br>
+                                            <span><i class="fas fa-star"> {{ ski4 }} </i> </span>                                           
+                                        </div>
+                                        <div class="col-sm-4">                                            
+                                            <span><i class="fas fa-star"> {{ ski2 }} </i> </span>
+                                            <br>
+                                            <span><i class="fas fa-star"> {{ ski5 }} </i> </span>	                                                                             
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><i class="fas fa-star"> {{ ski3 }} </i> </span>
+                                            <br>
+                                            <span><i class="fas fa-star"> {{ ski6 }} </i> </span>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hori">
+
+                                    <h4> Projects </h4>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-8">
+                                            <span> <b> {{ pr1 }} </b> </span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span><b><i>{{ psdate1 }} {{ pedate1 }} - {{ psdate2 }} {{ pedate2 }} </i></b> </span>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-12">
+                                            <span>{{ pro1 }} </span>
+                                        </div>
+                                    </div> 
+
+                                    <div v-if="seen2" id="hide">
+                                        <hr>
+                                        <div class="row" id="pad">
+                                            <div class="col-sm-8">
+                                                <span> <b> {{ pr2 }} </b> </span>                                  
+                                            </div>
+                                            <div class="col-sm-4">                                                
+                                                <span><b><i> {{ psdate3 }} {{ pedate3 }} - {{ psdate4 }} {{ pedate4 }} </i></b> </span>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="pad">
+                                            <div class="col-sm-12">
+                                                <span> {{ pro2 }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hori">
+
+                                    <h4> Achievements </h4>
+                                    <div class="row" id="pad">
+                                        <div class="col-sm-12">                                            
+                                            <span> {{ ach1 }} </span>
+                                            <br>
+                                            <span> {{ ach2 }} </span>
+                                            <br>
+                                            <span> {{ ach3 }} </span>                                 
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>                            						                                                                                                                	                                                                                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <div id="=vue-app"></div>
+    <script
+      type="text/javascript"
+      src="app_vue/app.js"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--Pdfmake-->
+    <script>
+      window.onload = function () {
+        document.getElementById("download").addEventListener("click", () => {
+          const resume = this.document.getElementById("resume");
+          console.log(resume);
+          console.log(window);
+
+          var opt = {
+            margin: 0.4,
+            filename: "resume.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+          };
+          html2pdf().from(resume).set(opt).save();
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  section {
+    padding-top: 1%;
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #fccd67, #d52323);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  section:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background: #ffffff;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+ 
+  .btn-pink-moon {
+    background-image: linear-gradient(
+      to right,
+      #f13d73,
+      #fccd67 51%,
+      #ff2f74 100%
+    );
+  }
+  .btn-pink-moon {
+    margin: 10px;
+    padding: 15px 45px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #ffffff;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .btn-pink-moon:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .col-sm-12 {
+    padding-top: -10px;
+    text-align: center;
+    font-weight: 800;
+  }
+  
+  .navbar-dark {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-image: linear-gradient(to right, #f13d73, #fccd67);
+  }
+  div.scrollmen {
+    background-image: linear-gradient(to right, #f13d73, #fccd67);
+  }
+  
+  div.scrollmen a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    float: none;
+    text-decoration: none;
+  }
+  div.scrollmen a:hover {
+    background-color: #f13d73;
+  }
+  
+  .fa-phone {
+    color: #f13d73;
+  }
+  .fa-envelope {
+    color: #f13d73;
+  }
+  .fa-map-marker {
+    color: #f13d73;
+  }
+  .fa-birthday-cake {
+    color: #f13d73;
+  }
+  
+  .vertical-menu {
+    width: 600px;
+    height: 700px;
+    overflow-y: auto;
+    background: linear-gradient(to top, #f13d73, #fccd67);
+  }
+  
+  #page {
+    width: 21cm;
+    height: 29cm;
+    background-color: white;
+    margin: 1% auto 1% auto;
+    padding: 0.2cm 1.3cm 1cm 1.3cm;
+    box-shadow: 0px 0px 20px 0px #000;
+    line-height: 1.4em;
+    text-align: left;
+  }
+  
+  .card {
+    width: 10cm;
+    background-color: white;
+    margin: 2% auto 1% auto;
+    box-shadow: 0px 0px 20px 0px #000;
+    line-height: 1.4em;
+    text-align: left;
+    height: 1094px;
+    overflow-y: auto;
+  }
+  
