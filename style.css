@@ -1,0 +1,120 @@
+body {
+  font-size: 28px;
+  background-color: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  background-color: #fff;
+  padding: 1px;
+  text-align: center;
+}
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+.navbar-brand  {
+  color: #009b62;
+  font-weight: bold;
+}
+#navbar a {
+  float: left;
+  display: block;
+  color: #009b62;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+#navbar a:hover {
+  color: tomato;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.nav-item {
+  padding-top: 8px;
+  padding-bottom: 2px;
+  border-bottom: 3px solid #6b25f600;
+}
+.nav-item:hover {
+  border-bottom: 3px solid tomato;
+}
+.one-block  {
+  height: 700px;
+  background-color: #ffd67f;
+  border-radius: 10px;
+  background-position: left top;
+  margin-left: 100px;
+}
+.img-bass {
+  width: 900px;
+  margin-right: 300px;
+}
+.text-mca {
+  padding-top: 30%;
+  margin-left: 80px;
+}
+h1{
+  color: tomato;
+  font-weight: bolder;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.custom-border-bottom {
+  background: linear-gradient(to right, #009b62, #0be099);
+  height: 5px;
+  width: 7vw;
+  border-radius: 65px;
+}
+h4 {
+  color: #009b62;
+}
+#scrollspyHeading1  {
+  padding-top: 20px;
+}
+#scrollspyHeading2  {
+  padding-top: 20px;
+}
+.padd {
+  margin-left: 110px;
+  margin-right: 110px;
+  padding-top: 50px;
+  font-weight: 600;
+}
+.polaroid {
+  width: 60%;
+  height: auto;
+  margin-left: 110px;
+  margin-right: 110px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px; 
+}
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+.forn {
+  padding-top: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.footer {
+  text-align: center;
+  padding-top: 50px;
+}
+.size {
+  width: 30px;
+  padding: 5px;
+}
