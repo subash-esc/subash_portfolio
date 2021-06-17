@@ -1,76 +1,53 @@
 <?php
-if (isset($_POST['Email'])) {
+$Email = Trim(stripslashes($_POST['Email'])); // Collecting the users email
+$EmailTo = "subash2esc@gmail.com"; // Your email address to receive the message.
+$Subject = "Message from GITHUB MyWebsite"; // Subject of the email
+$Name = Trim(stripslashes($_POST['Name'])); // Collecting the users Name
 
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "subash2esc@gmail.com";
-    $email_subject = "Mail from my website";
-
-    function problem($error)
-    {
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br><br>";
-        echo $error . "<br><br>";
-        echo "Please go back and fix these errors.<br><br>";
-        die();
-    }
-
-    // validation expected data exists
-    if (
-        !isset($_POST['Name']) ||
-        !isset($_POST['Email']) ||
-        !isset($_POST['Message'])
-    ) {
-        problem('We are sorry, but there appears to be a problem with the form you submitted.');
-    }
-
-    $name = $_POST['Name']; // required
-    $email = $_POST['Email']; // required
-    $message = $_POST['Message']; // required
-
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-
-    if (!preg_match($email_exp, $email)) {
-        $error_message .= 'The Email address you entered does not appear to be valid.<br>';
-    }
-
-    $string_exp = "/^[A-Za-z .'-]+$/";
-
-    if (!preg_match($string_exp, $name)) {
-        $error_message .= 'The Name you entered does not appear to be valid.<br>';
-    }
-
-    if (strlen($message) < 2) {
-        $error_message .= 'The Message you entered do not appear to be valid.<br>';
-    }
-
-    if (strlen($error_message) > 0) {
-        problem($error_message);
-    }
-
-    $email_message = "Form details below.\n\n";
-
-    function clean_string($string)
-    {
-        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-        return str_replace($bad, "", $string);
-    }
-
-    $email_message .= "Name: " . clean_string($name) . "\n";
-    $email_message .= "Email: " . clean_string($email) . "\n";
-    $email_message .= "Message: " . clean_string($message) . "\n";
-
-    // create email headers
-    $headers = 'From: ' . $email . "\r\n" .
-        'Reply-To: ' . $email . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    @mail($email_to, $email_subject, $email_message, $headers);
-?>
-
-    <!-- include your success message below -->
-
-    Thank you for contacting us. We will be in touch with you very soon.
-
-<?php
+// If statement checking whether the users email is valid
+if (strpos($Email, '@') === false && strpos($Email, '.') === false) {
+header("Location: index.html"); // Web address of your contact page
+exit();
 }
+
+$Message = Trim(stripslashes($_POST['Message'])); // Collecting users message
+
+// Validation
+$validationOK=true;
+if (!$validationOK) {
+print "<meta http-equiv=\"refresh\" content=\"0;URL=error.htm\">";
+exit;
+}
+
+// Prepare email body text.
+// Can be concatenated but this is easier to read.
+$Body = "";
+$Body .= "Hello";
+$Body .= "/n";
+$Body .= "Thank you for contacting us. We have received your message and we aim to get back to you as soon as possible.";
+$Body .= "Your enquiry: ";
+$Body .= "\n";
+$Body .= "Name: ";
+$Body .= $Name;
+$Body .= "\n";
+$Body .= "Email: ";
+$Body .= $Email;
+$Body .= "\n";
+$Body .= "Message: ";
+$Body .= $Message;
+$Body .= "\n";
+
+// Function to send the email.
+// Attached to a variable so it can it can be checked in an if statement later.
+$success = mail($EmailTo, $Subject, $Body, "From: <$Email>");
+
+// If statement to check if the email was sent.
+// Redirect to the url you will enter on line 47 instead of the #.
+if ($success){
+print "<meta http-equiv=\"refresh\" content=\"0;URL=index.html\">";
+}
+else{
+print "<meta http-equiv=\"refresh\" content=\"0;URL=index.html\">";
+}
+
 ?>
